@@ -1,0 +1,93 @@
+{% extends 'base.html' %} {% block title %}Lista de produtos{% endblock %} {%
+block content %}
+
+<h2 class="titulo-pagina">Lista de produtos</h2>
+
+<div class="lista-produtos">
+  {% for produto in produtos %}
+  <div class="produto-card">
+    <div class="produto-conteudo">
+      <div class="produto-info">
+        <h3>{{ produto.nome }}</h3>
+        <p><strong>Categoria:</strong> {{ produto.categoria }}</p>
+        <p>
+          <strong>Condição:</strong> {{ produto.condicao or 'Não informada' }}
+        </p>
+        <p><strong>Descrição:</strong> {{ produto.descricao }}</p>
+
+        {% if produto.data_cadastro %}
+        <p>
+          <strong>Data de Cadastro:</strong>
+          {% if produto.data_cadastro.__class__.__name__ == 'str' %} {{
+          produto.data_cadastro }} {% else %} {{
+          produto.data_cadastro.strftime('%d/%m/%Y') }} {% endif %}
+        </p>
+        {% endif %}
+
+        <p>
+          <strong>Status:</strong>
+          {% if produto.disponivel %}
+          <span style="color: green; font-weight: bold">Disponível</span>
+          {% else %}
+          <span style="color: red; font-weight: bold">Não disponível</span>
+          {% endif %}
+        </p>
+
+        <div class="botoes-produto">
+          {% if produto.id_usuario == session['usuario_id'] %}
+          <form
+            action="{{ url_for('main.deletar_produto', id=produto.id) }}"
+            method="post"
+            style="display: inline"
+          >
+            <button
+              type="submit"
+              class="botao-deletar"
+              onclick="return confirm('Tem certeza que deseja excluir este produto?')"
+            >
+              🗑️ Deletar
+            </button>
+          </form>
+          <a href="{{ url_for('main.editar_produto', id=produto.id) }}">
+            <button class="botao-editar">✏️ Editar</button>
+          </a>
+          {% else %}
+          <a href="{{ url_for('main.contato_produto', id=produto.id) }}">
+            <button class="botao-editar">📞 Contato</button>
+          </a>
+
+          {% if 'doacao' in produto.tipo|lower %}
+          <a href="{{ url_for('main.chat_produto', id=produto.id) }}">
+            <button class="btn-doar">🎁 Doar</button>
+          </a>
+          {% elif 'troca' in produto.tipo|lower %}
+          <a href="{{ url_for('main.chat_produto', id=produto.id) }}">
+            <button class="btn-trocar">🔁 Trocar</button>
+          </a>
+          {% endif %} {% endif %}
+
+          <a href="{{ url_for('main.detalhes_produto', id=produto.id) }}">
+            <button class="btn-detalhes">🔍 Ver detalhes</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="produto-imagem">
+        {% if produto.imagem %}
+        <img
+          src="{{ url_for('static', filename='uploads/' ~ produto.imagem) }}"
+          alt="{{ produto.nome }}"
+        />
+        {% else %}
+        <img
+          src="{{ url_for('static', filename='img/sem-imagem.png') }}"
+          alt="Sem imagem"
+        />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

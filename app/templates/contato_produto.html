@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %}Contato do Usuário{% endblock %} {%
+block content %}
+
+<h2 class="titulo-pagina">Informações de Contato</h2>
+
+<div class="produto-card" style="max-width: 600px; margin: auto">
+  <p><strong>Nome:</strong> {{ produto.usuario.nome }}</p>
+  <p><strong>Email:</strong> {{ produto.usuario.email }}</p>
+  <p><strong>Telefone:</strong> {{ produto.usuario.telefone }}</p>
+
+  <a href="{{ url_for('main.list_produtos') }}" class="botao-voltar"
+    >← Voltar</a
+  >
+</div>
+
+{% endblock %}

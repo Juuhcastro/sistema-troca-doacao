@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block title %}Histórico{% endblock %} {% block
+content %}
+<div class="container">
+  <h2 class="titulo-pagina" style="margin-top: 30px; text-align: center">
+    📋 Histórico de Ações<br />Usuário: <strong>{{ usuario.nome }}</strong>
+  </h2>
+
+  {% if historico %}
+  <div class="tabela-wrapper" style="overflow-x: auto; margin-top: 20px">
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th>📅 Data</th>
+          <th>⏰ Hora</th>
+          <th>🛠️ Ação</th>
+          <th>📦 Produto</th>
+          <th>🏷️ Destinatário</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for acao in historico %}
+        <tr>
+          <td>{{ acao.data_hora.strftime('%d/%m/%Y') }}</td>
+          <td>{{ acao.data_hora.strftime('%H:%M:%S') }}</td>
+          <td>{{ acao.acao }}</td>
+          <td>{{ acao.produto or '—' }}</td>
+          <td>{{ acao.destinatario or '—' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p style="margin-top: 30px; text-align: center; font-style: italic">
+    Nenhuma ação registrada ainda.
+  </p>
+  {% endif %}
+</div>
+{% endblock %}

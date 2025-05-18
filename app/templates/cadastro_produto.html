@@ -1,0 +1,91 @@
+{% extends 'base.html' %} {% block title %}Cadastro de Produto{% endblock %} {%
+block botoes_topo %}
+<a href="{{ url_for('main.painel') }}" class="botao-direita">🏠 Início</a>
+<a href="{{ url_for('main.list_produtos') }}" class="botao-direita"
+  >📦 Produtos</a
+>
+{% endblock %} {% block content %}
+<div class="form-container produto">
+  <h1 class="titulo">Cadastrar Produto</h1>
+
+  <form
+    action="{{ url_for('main.cadastrar_produto') }}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <label for="nome">Nome do Produto</label>
+    <input type="text" name="nome" id="nome" class="campo-grande" required />
+
+    <label for="descricao">Descrição</label>
+    <input
+      type="text"
+      name="descricao"
+      id="descricao"
+      class="campo-grande"
+      required
+    />
+
+    <label for="categoria">Categoria</label>
+    <input
+      type="text"
+      name="categoria"
+      id="categoria"
+      class="campo-grande"
+      required
+    />
+
+    <label for="localizacao">📍 Localização</label>
+    <input type="text" name="localizacao" class="campo-grande" />
+
+    <label for="data_cadastro">📅 Data de Cadastro</label>
+    <input type="date" name="data_cadastro" class="campo-grande" />
+
+    <label for="estado_conservacao">🌟 Estado de Conservação</label>
+    <input type="text" name="estado_conservacao" class="campo-grande" />
+
+    <label for="altura">📏 Altura (cm)</label>
+    <input type="text" name="altura" class="campo-grande" />
+
+    <label for="largura">📏 Largura (cm)</label>
+    <input type="text" name="largura" class="campo-grande" />
+
+    <label for="profundidade">📏 Profundidade (cm)</label>
+    <input type="text" name="profundidade" class="campo-grande" />
+
+    <label for="voltagem">🔌 Voltagem</label>
+    <input type="text" name="voltagem" class="campo-grande" />
+
+    <label for="nivel_ruido">🔊 Nível de Ruído</label>
+    <input type="text" name="nivel_ruido" class="campo-grande" />
+
+    <label for="sistema">⚙️ Sistema</label>
+    <input type="text" name="sistema" class="campo-grande" />
+
+    <label for="observacoes">📝 Observações</label>
+    <textarea name="observacoes" class="campo-grande" rows="4"></textarea>
+
+    <label for="condicao">Condição</label>
+    <select name="condicao" id="condicao" class="campo-grande" required>
+      <option value="">Selecione...</option>
+      <option value="Novo">Novo</option>
+      <option value="Usado">Usado</option>
+      <option value="Pouco usado">Pouco usado</option>
+    </select>
+
+    <label for="imagem"><strong>Carregar imagem</strong></label>
+    <input type="file" name="imagem" id="imagem" class="campo-grande" />
+
+    <label>Marque o tipo</label>
+    <div class="checkbox-linha">
+      <label for="troca">
+        <input type="checkbox" name="tipo" id="troca" value="troca" /> Troca
+      </label>
+      <label for="doacao">
+        <input type="checkbox" name="tipo" id="doacao" value="doacao" /> Doação
+      </label>
+    </div>
+
+    <button type="submit" class="botao-cadastrar">Enviar</button>
+  </form>
+</div>
+{% endblock %}

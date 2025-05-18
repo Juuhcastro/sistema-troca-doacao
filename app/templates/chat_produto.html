@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block title %}Negociação{% endblock %} {% block
+content %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/chat.css') }}"
+/>
+
+<h2 class="titulo-pagina">Chat de Negociação</h2>
+
+<div class="produto-card" style="max-width: 600px; margin: auto">
+  <p>
+    Negociando com <strong>{{ produto.usuario.nome }}</strong> sobre
+    <strong>{{ produto.nome }}</strong>
+  </p>
+  <p>Email: <strong>{{ produto.usuario.email }}</strong></p>
+  <p>Telefone: <strong>{{ produto.usuario.telefone }}</strong></p>
+
+  <p style="margin-top: 20px">
+    Entre em contato para combinar a troca ou doação.
+  </p>
+
+  <form method="POST">
+    <textarea
+      name="mensagem"
+      placeholder="Digite sua mensagem..."
+      rows="4"
+      style="width: 100%"
+      required
+    ></textarea>
+    <button type="submit" style="margin-top: 10px">Enviar</button>
+  </form>
+
+  <hr />
+
+  <h4>Histórico de Mensagens</h4>
+  <div id="mensagens" class="chat-box">
+    {% include 'partials/mensagens.html' %}
+  </div>
+</div>
+
+{% endblock %}

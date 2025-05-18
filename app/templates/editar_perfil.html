@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% block title %}Editar Perfil{% endblock %} {% block
+content %}
+
+<h2 class="titulo-pagina">Editar Perfil</h2>
+
+<div class="form-container cadastro">
+  <!-- Flash messages (sucesso/erro) -->
+  {% with mensagens = get_flashed_messages(with_categories=true) %} {% if
+  mensagens %}
+  <ul class="mensagens-flash">
+    {% for categoria, msg in mensagens %}
+    <li class="mensagem {{ categoria }}">{{ msg }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %} {% endwith %}
+
+  <form method="POST" enctype="multipart/form-data">
+    <label for="nome">Nome:</label>
+    <input
+      type="text"
+      name="nome"
+      id="nome"
+      value="{{ usuario.nome }}"
+      class="campo-grande"
+      maxlength="100"
+      required
+      autofocus
+    />
+
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      value="{{ usuario.email }}"
+      class="campo-grande"
+      maxlength="100"
+      required
+    />
+
+    <label for="telefone">Telefone:</label>
+    <input
+      type="text"
+      name="telefone"
+      id="telefone"
+      value="{{ usuario.telefone }}"
+      class="campo-grande"
+      maxlength="20"
+    />
+
+    <!-- Exibir foto atual se houver -->
+    {% if usuario.foto %}
+    <p>Foto atual:</p>
+    <img
+      src="{{ url_for('static', filename='uploads/' ~ usuario.foto) }}"
+      alt="Foto atual"
+      style="max-width: 120px; border-radius: 6px"
+    />
+    {% endif %}
+
+    <label for="foto">Alterar Foto de Perfil:</label>
+    <input
+      type="file"
+      name="foto"
+      id="foto"
+      accept=".jpg,.jpeg,.png,.gif"
+      class="campo-grande"
+    />
+
+    <button type="submit" class="botao-cadastrar">Salvar</button>
+  </form>
+</div>
+
+{% endblock %}

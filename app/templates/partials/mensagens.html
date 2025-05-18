@@ -1,0 +1,10 @@
+{% for mensagem in mensagens %}
+<div class="mensagem">
+  <strong>
+    {% if mensagem.id_usuario == usuario_logado.id %} Você {% else %} {{
+    mensagem.autor.nome }} {% endif %} </strong
+  >: {{ mensagem.conteudo }}
+  <br />
+  <small>{{ mensagem.data_envio.strftime('%d/%m/%Y %H:%M') }}</small>
+</div>
+{% endfor %}

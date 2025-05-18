@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block title %}Meu Perfil{% endblock %} {% block
+content %}
+<h2 class="titulo-pagina" style="text-align: center; margin-top: 20px">
+  👤 Meu Perfil
+</h2>
+
+<div
+  class="produto-card"
+  style="max-width: 400px; margin: 30px auto; padding: 20px; text-align: center"
+>
+  {% if usuario.foto %}
+  <img
+    src="{{ url_for('static', filename='uploads/' ~ usuario.foto) }}"
+    alt="Foto de perfil"
+    style="
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    "
+  />
+  {% else %}
+  <img
+    src="{{ url_for('static', filename='img/icone-usuario.png') }}"
+    alt="Foto padrão"
+    style="
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    "
+  />
+  {% endif %}
+
+  <h3>{{ usuario.nome }}</h3>
+  <p><strong>Email:</strong> {{ usuario.email }}</p>
+  <p><strong>Telefone:</strong> {{ usuario.telefone or 'Não informado' }}</p>
+  <p><strong>Endereço:</strong> {{ usuario.endereco or 'Não informado' }}</p>
+  <p>
+    <strong>Data de cadastro:</strong>
+    {{ usuario.data_cadastro.strftime('%d/%m/%Y') if usuario.data_cadastro else
+    'Não informada' }}
+  </p>
+  <p><strong>Quantidade de itens:</strong> {{ total_produtos }}</p>
+
+  <a href="{{ url_for('main.editar_perfil') }}">
+    <button class="botao-login">✏️ Editar Perfil</button>
+  </a>
+</div>
+{% endblock %}

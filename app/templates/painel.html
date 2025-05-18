@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Painel</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header class="topo">
+      <div class="topo-conteudo">
+        <img
+          src="{{ url_for('static', filename='img/logo-verde.png') }}"
+          alt="Logo"
+          class="logo-topo"
+        />
+        <div class="botoes-direita">
+          <a href="{{ url_for('main.list_produtos') }}" class="botao-direita">
+            📦 Produtos
+          </a>
+          <a href="{{ url_for('main.meu_perfil') }}" class="botao-direita">
+            👤 Meu Perfil
+          </a>
+          <a href="{{ url_for('main.logout') }}" class="botao-direita sair">
+            <span class="icone-sair">🚪</span> Sair
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="pagina-inicial">
+      <h2>Olá, {{ session['nome'] }}!</h2>
+      <p>Seja bem-vindo(a) ao sistema de doações e trocas da sua comunidade.</p>
+
+      <div class="acoes-grid">
+        <a href="{{ url_for('main.trocas_doacoes') }}" class="acao-box">
+          <div class="icone">🔁</div>
+          <span>Trocar ou Doar</span>
+        </a>
+
+        <a href="{{ url_for('main.cadastrar_produto') }}" class="acao-box">
+          <div class="icone">➕</div>
+          <span>Novo Anúncio</span>
+        </a>
+
+        <a href="{{ url_for('main.historico') }}" class="acao-box">
+          <div class="icone">📝</div>
+          <span>Histórico</span>
+        </a>
+      </div>
+
+      <img
+        src="{{ url_for('static', filename='img/mao-caixa.png') }}"
+        alt="Ilustração mãos com caixa"
+        class="mao-caixa"
+      />
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+      <p>&copy; 2025 Sistema de Troca</p>
+    </footer>
+  </body>
+</html>

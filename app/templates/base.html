@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Sistema de Troca{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Cabeçalho com logo e botões -->
+    <header class="topo">
+      <div class="topo-conteudo">
+        {% if logo_centralizado %}
+        <div class="logo-centralizada">
+          <img
+            src="{{ url_for('static', filename='img/logo-verde.png') }}"
+            alt="Logo"
+            class="logo-central"
+          />
+        </div>
+        {% else %}
+        <img
+          src="{{ url_for('static', filename='img/logo-verde.png') }}"
+          alt="Logo"
+          class="logo-topo"
+        />
+        {% endif %}
+
+        <!-- Botões do lado direito -->
+        <div class="botoes-direita">
+          {% if mostrar_apenas_sair %} {% if not ocultar_inicio %}
+          <a href="{{ url_for('main.painel') }}" class="botao-direita"
+            >🏠 Início</a
+          >
+          {% endif %} {% if not ocultar_botao_produtos %}
+          <a href="{{ url_for('main.list_produtos') }}" class="botao-direita"
+            >📦 Produtos</a
+          >
+          {% endif %}
+          <a href="{{ url_for('main.logout') }}" class="botao-direita sair">
+            <span class="icone-sair">&#x1F6AA;</span> Sair
+          </a>
+          {% elif not ocultar_botoes_topo %}
+          <a href="{{ url_for('main.login') }}" class="botao-topo azul"
+            >Entrar</a
+          >
+          <a href="{{ url_for('main.cadastro') }}" class="botao-topo cinza"
+            >Cadastre-se</a
+          >
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+    <!-- Mensagens Flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul class="mensagens-flash">
+      {% for categoria, mensagem in messages %}
+      <li class="{{ categoria }}">{{ mensagem }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+    <!-- Conteúdo principal -->
+    <main>{% block content %}{% endblock %}</main>
+
+    <!-- Rodapé fixo -->
+    <footer class="rodape">
+      <p>&copy; 2025 Sistema de Troca</p>
+    </footer>
+  </body>
+</html>

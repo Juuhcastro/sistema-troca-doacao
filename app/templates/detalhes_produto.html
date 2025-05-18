@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block title %}Detalhes do Produto{% endblock %} {%
+block content %}
+
+<h2 class="titulo-pagina">Detalhes do Produto</h2>
+
+<!-- Bloco centralizador -->
+<div class="produto-detalhes-central">
+  <div class="produto-card">
+    <div class="produto-conteudo">
+      <div class="produto-info">
+        <h3>{{ produto.nome }}</h3>
+
+        {% if produto.categoria %}
+        <p><strong>📦 Categoria:</strong> {{ produto.categoria }}</p>
+        {% endif %} {% if produto.tipo %}
+        <p><strong>📫 Tipo de Ação:</strong> {{ produto.tipo }}</p>
+        {% endif %} {% if produto.localizacao %}
+        <p><strong>📍 Localização:</strong> {{ produto.localizacao }}</p>
+        {% endif %} {% if produto.data_cadastro %}
+        <p>
+          <strong>🗓️ Data de Cadastro:</strong> {{
+          produto.data_cadastro.strftime('%d/%m/%Y') }}
+        </p>
+        {% endif %} {% if produto.estado_conservacao %}
+        <p>
+          <strong>🛠️ Estado de Conservação:</strong> {{
+          produto.estado_conservacao }}
+        </p>
+        {% endif %} {% if produto.altura or produto.largura or
+        produto.profundidade %}
+        <p>
+          <strong>📏 Dimensões aproximadas:</strong><br />
+          {% if produto.altura %}Altura: {{ produto.altura }} cm<br />{% endif
+          %} {% if produto.largura %}Largura: {{ produto.largura }} cm<br />{%
+          endif %} {% if produto.profundidade %}Profundidade: {{
+          produto.profundidade }} cm{% endif %}
+        </p>
+        {% endif %} {% if produto.voltagem %}
+        <p><strong>🔌 Voltagem:</strong> {{ produto.voltagem }}</p>
+        {% endif %} {% if produto.nivel_ruido %}
+        <p><strong>🔊 Nível de ruído:</strong> {{ produto.nivel_ruido }}</p>
+        {% endif %} {% if produto.sistema %}
+        <p><strong>❄️ Sistema:</strong> {{ produto.sistema }}</p>
+        {% endif %} {% if produto.observacoes %}
+        <p><strong>📝 Observações:</strong><br />{{ produto.observacoes }}</p>
+        {% endif %}
+
+        <p><strong>📤 Publicado por:</strong> {{ produto.usuario.nome }}</p>
+      </div>
+
+      <div class="produto-imagem">
+        {% if produto.imagem %}
+        <img
+          src="{{ url_for('static', filename='uploads/' ~ produto.imagem) }}"
+          alt="{{ produto.nome }}"
+        />
+        {% else %}
+        <img
+          src="{{ url_for('static', filename='img/sem-imagem.png') }}"
+          alt="Sem imagem"
+        />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

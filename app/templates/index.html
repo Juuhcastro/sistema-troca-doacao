@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %}Início{% endblock %} {% block content
+%}
+<div class="pagina-inicial">
+  <h1 class="titulo">
+    Sistema de troca e doação<br />de Produtos comunitários
+  </h1>
+
+  <p class="subtitulo">Conectando pessoas para ajudar com doações e trocas!</p>
+
+  <img
+    src="{{ url_for('static', filename='img/mao-caixa.png') }}"
+    alt="Ilustração de troca"
+    class="mao-caixa"
+  />
+</div>
+{% endblock %}

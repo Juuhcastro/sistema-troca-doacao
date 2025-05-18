@@ -1,0 +1,554 @@
+/* === TOPO === */
+.topo {
+  background-color: #d0f0c0;
+  padding: 0 20px;
+  height: 80px;
+  overflow: hidden;
+}
+
+.topo-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-topo {
+  max-height: 165px;
+  height: auto;
+  margin-left: 10px;
+  margin-top: -40px;
+}
+
+.botoes-topo {
+  display: flex;
+  gap: 10px;
+  margin-top: -40px;
+}
+
+.botao-topo {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.botao-topo.azul {
+  background-color: #4285f4;
+  color: white;
+}
+
+.botao-topo.cinza {
+  background-color: #eeeeee;
+  color: black;
+}
+
+.botao-topo.voltar {
+  color: #222;
+}
+
+.botao-topo.sair {
+  color: #7a3e00;
+}
+
+/* === PÁGINA INICIAL === */
+.pagina-inicial {
+  text-align: center;
+  padding: 2em;
+  background-color: white;
+}
+
+.titulo {
+  font-size: 2em;
+  font-weight: bold;
+  color: blue;
+  margin-bottom: 0.5em;
+}
+
+.subtitulo {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 1.5em;
+}
+
+.mao-caixa {
+  width: 200px;
+  margin-top: 2em;
+}
+
+/* === RODAPÉ === */
+.rodape {
+  background-color: #0077aa;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 40px;
+}
+
+/* === FORMULÁRIOS === */
+.form-container.login {
+  text-align: center;
+}
+
+.form-container.login .titulo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0.2em;
+}
+
+.form-container.login .subtitulo {
+  font-size: 1em;
+  color: #802020;
+  margin-bottom: 1.5em;
+}
+
+.form-container.login form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.form-container.login label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+  color: #222;
+  font-size: 1em;
+}
+
+.campo-grande {
+  width: 100%;
+  background-color: #ddd;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 1em;
+}
+
+.botao-login {
+  background-color: #4285f4;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.botao-login:hover {
+  background-color: #2a65c0;
+}
+
+.link-cadastro {
+  margin-top: 15px;
+  font-size: 0.95em;
+}
+
+.link-cadastro a {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* === BOTÕES DIREITA === */
+.botoes-direita {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: -40px;
+  margin-right: 20px;
+  height: 80px;
+}
+
+.botao-direita {
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 6px 12px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.botao-direita.voltar {
+  color: #222;
+}
+
+.botao-direita.sair {
+  color: #7a3e00;
+}
+
+.icone-voltar,
+.icone-sair {
+  font-size: 1.2em;
+  margin-right: 6px;
+}
+
+/* === FORMULÁRIO DE CADASTRO === */
+.form-container.cadastro {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2em;
+  text-align: left;
+}
+
+.form-container.cadastro .titulo {
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.botao-cadastrar {
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 25px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+}
+
+.botao-cadastrar:hover {
+  background-color: #218838;
+}
+
+/* === PÁGINA PAINEL === */
+.acoes-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.acao-box {
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.acao-box:hover {
+  transform: scale(1.05);
+}
+
+.acao-box .icone {
+  font-size: 40px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* === FORMULÁRIO PRODUTO === */
+.form-container.produto {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2em;
+  text-align: left;
+}
+
+.form-container.produto .titulo {
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.form-container.produto label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+
+.form-container.produto input[type="text"],
+.form-container.produto input[type="file"],
+.form-container.produto select {
+  width: 100%;
+  background-color: #ddd;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 1em;
+}
+
+/* === TIPO DE PRODUTO === */
+.checkbox-linha {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.checkbox-linha label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1em;
+  color: #222;
+}
+
+/* === LOGO CENTRAL === */
+.topo-conteudo-centralizado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 30px;
+  background-color: #d0f0c0;
+}
+
+.logo-central {
+  max-height: 165px;
+  height: auto;
+  margin-left: 10px;
+  margin-top: -40px;
+}
+
+.botao-inicio {
+  font-weight: bold;
+  color: #222;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: -40px;
+}
+
+.botao-inicio:hover {
+  text-decoration: underline;
+}
+
+/* === LISTA DE PRODUTOS === */
+.titulo-pagina {
+  text-align: center;
+  font-size: 26px;
+  color: #003366;
+  margin: 30px 0;
+}
+
+.lista-produtos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.produto-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  width: 800px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.produto-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.produto-info {
+  max-width: 60%;
+}
+
+.produto-imagem img {
+  max-width: 180px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.botoes-produto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+/* Garante que os botões e formulários fiquem alinhados */
+.botoes-produto form,
+.botoes-produto a {
+  display: inline-block;
+  margin: 0;
+}
+
+.botoes-produto button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.botoes-produto button:hover {
+  background-color: #cfcfcf;
+}
+
+.botao-deletar {
+  background-color: #0a0a0a;
+  color: rgb(226, 18, 18);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botao-deletar:hover {
+  background-color: #ec1b04;
+}
+
+/* Estilo mensagem de errro */
+
+.mensagens-flash {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.mensagens-flash li {
+  padding: 12px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Erros (categoria = 'erro') */
+.mensagens-flash li.erro {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Sucesso (categoria = 'sucesso') */
+.mensagens-flash li.sucesso {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.produto-detalhes-central {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Estilo chat */
+.chat-box {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+.mensagem {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 75%;
+  clear: both;
+}
+
+.mensagem.eu {
+  background-color: #d1f0d1;
+  float: right;
+  text-align: right;
+}
+
+.mensagem.outro {
+  background-color: #e2e2f9;
+  float: left;
+  text-align: left;
+}
+
+.mensagem small {
+  display: block;
+  color: #666;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/* Estilo pagina historico */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.titulo-pagina {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.tabela-wrapper {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabela th,
+.tabela td {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tabela th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #444;
+}
+
+.tabela tr:hover {
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+  .tabela th,
+  .tabela td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+
+  .titulo-pagina {
+    font-size: 20px;
+  }
+}

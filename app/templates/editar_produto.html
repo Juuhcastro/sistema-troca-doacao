@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}Editar Produto{% endblock %}
+{% block content %}
+
+<div class="form-container produto">
+  <h1 class="titulo">Editar Produto</h1>
+
+  <form
+    action="{{ url_for('main.editar_produto', id=produto.id) }}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <label for="nome">Nome do Produto</label>
+    <input type="text" name="nome" value="{{ produto.nome }}" class="campo-grande" required />
+
+    <label for="descricao">Descrição</label>
+    <input type="text" name="descricao" value="{{ produto.descricao }}" class="campo-grande" required />
+
+    <label for="categoria">Categoria</label>
+    <input type="text" name="categoria" value="{{ produto.categoria }}" class="campo-grande" required />
+
+    <label for="localizacao">📍 Localização</label>
+    <input type="text" name="localizacao" value="{{ produto.localizacao }}" class="campo-grande" />
+
+    <label for="estado_conservacao">🌟 Estado de Conservação</label>
+    <input type="text" name="estado_conservacao" value="{{ produto.estado_conservacao }}" class="campo-grande" />
+
+    <label for="altura">📏 Altura (cm)</label>
+    <input type="text" name="altura" value="{{ produto.altura }}" class="campo-grande" />
+
+    <label for="largura">📏 Largura (cm)</label>
+    <input type="text" name="largura" value="{{ produto.largura }}" class="campo-grande" />
+
+    <label for="profundidade">📏 Profundidade (cm)</label>
+    <input type="text" name="profundidade" value="{{ produto.profundidade }}" class="campo-grande" />
+
+    <label for="voltagem">🔌 Voltagem</label>
+    <input type="text" name="voltagem" value="{{ produto.voltagem }}" class="campo-grande" />
+
+    <label for="nivel_ruido">🔊 Nível de Ruído</label>
+    <input type="text" name="nivel_ruido" value="{{ produto.nivel_ruido }}" class="campo-grande" />
+
+    <label for="sistema">⚙️ Sistema</label>
+    <input type="text" name="sistema" value="{{ produto.sistema }}" class="campo-grande" />
+
+    <label for="observacoes">📝 Observações</label>
+    <textarea name="observacoes" class="campo-grande" rows="4">{{ produto.observacoes }}</textarea>
+
+    <label for="condicao">Condição</label>
+    <select name="condicao" class="campo-grande" required>
+      <option value="Novo" {% if produto.condicao == 'Novo' %}selected{% endif %}>Novo</option>
+      <option value="Usado" {% if produto.condicao == 'Usado' %}selected{% endif %}>Usado</option>
+      <option value="Pouco usado" {% if produto.condicao == 'Pouco usado' %}selected{% endif %}>Pouco usado</option>
+    </select>
+
+    <label for="imagem">Imagem (deixe vazio se não for alterar)</label>
+    <input type="file" name="imagem" class="campo-grande" />
+
+    <label>Tipo de Ação</label>
+    <div class="checkbox-linha">
+      <label>
+        <input type="checkbox" name="tipo" value="troca" {% if 'troca' in produto.tipo %}checked{% endif %} /> Troca
+      </label>
+      <label>
+        <input type="checkbox" name="tipo" value="doacao" {% if 'doacao' in produto.tipo %}checked{% endif %} /> Doação
+      </label>
+    </div>
+
+    <button type="submit" class="botao-cadastrar">Salvar Alterações</button>
+  </form>
+</div>
+
+{% endblock %}
